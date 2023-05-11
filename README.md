@@ -1,2 +1,3 @@
 # action-vapoursynth-install
-Github action to install Vapoursynth
+
+Action to install Vapoursynth
