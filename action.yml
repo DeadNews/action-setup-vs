@@ -6,9 +6,10 @@ inputs:
     required: true
     default: 62
 runs:
-  runs-on: ubuntu-latest
+  using: composite
   steps:
     - name: Install vapoursynth make-deps
+      shell: bash
       run: sudo apt install cython3 g++ libzimg-dev meson ninja-build
 
     - name: Use ccache
@@ -17,9 +18,11 @@ runs:
         key: R${{ inputs.version }}
 
     - name: Configure shell
+      shell: bash
       run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
 
     - name: Install vapoursynth
+      shell: bash
       run: |
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b R${{ inputs.version }}
         pushd vapoursynth
