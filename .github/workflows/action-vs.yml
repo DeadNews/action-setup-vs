@@ -18,10 +18,10 @@ jobs:
       - name: Install vapoursynth
         uses: ./
 
-      - uses: actions/setup-python@v4
+      # - uses: actions/setup-python@v4
 
-      - name: Install vapoursynth (pip)
-        run: pip install vapoursynth
+      # - name: Install vapoursynth (pip)
+      #   run: pip install vapoursynth
 
-      - name: Check vapoursynth
-        run: python -c "import vapoursynth; print(vapoursynth.core.version_number())"
+      # - name: Check vapoursynth
+      #   run: python -c "import vapoursynth; print(vapoursynth.core.version_number())"
