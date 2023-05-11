@@ -15,5 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Vapoursynth
+      - name: Install vapoursynth
         uses: ./
+
+      - name: Test vapoursynth
+        run: python -c "import vapoursynth; print(vapoursynth.core.version_number())"
