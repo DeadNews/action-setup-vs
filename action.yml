@@ -32,3 +32,5 @@ runs:
         sudo make install -j2
         popd
         rm -rf vapoursynth
+      env:
+        LD_LIBRARY_PATH: /usr/local/lib
