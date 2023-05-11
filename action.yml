@@ -28,7 +28,7 @@ runs:
         pushd vapoursynth
         ./autogen.sh
         ./configure --disable-x86-asm --disable-vspipe
-        make -j4
-        sudo make install -j4
+        make -j2
+        sudo make install -j2
         popd
         rm -rf vapoursynth
