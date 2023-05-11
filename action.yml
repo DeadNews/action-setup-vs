@@ -1,0 +1,37 @@
+name: Install Vapoursynth
+description: Install Vapoursynth in the current runner
+inputs:
+  version:
+    description: Vapoursynth version to use, if version is not provided then latest stable version will be used
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Install vapoursynth make-deps
+      shell: bash
+      run: |
+        sudo apt update
+        sudo apt install cython3 libzimg-dev meson ninja-build g++
+
+    - name: Use ccache
+      uses: hendrikmuhs/ccache-action@v1
+      with:
+        key: ${{ matrix.os }}-R${{ env.VAPOURSYNTH_VERSION }}
+
+    - name: Configure shell
+      shell: bash
+      run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
+
+    - name: Install vapoursynth
+      shell: bash
+      run: |
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b R${{ env.VAPOURSYNTH_VERSION }}
+        pushd vapoursynth
+        ./autogen.sh
+        ./configure --disable-x86-asm --disable-vspipe
+        make -j2
+        sudo make install -j2
+        popd
+        rm -rf vapoursynth
+      env:
+        LD_LIBRARY_PATH: /usr/local/lib
