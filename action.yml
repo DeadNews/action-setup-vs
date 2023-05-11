@@ -26,7 +26,7 @@ runs:
     - name: Install vapoursynth
       shell: bash
       run: |
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b R${{ inputs.versionN }}
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b R${{ inputs.version }}
         pushd vapoursynth
         ./autogen.sh
         ./configure --disable-x86-asm --disable-vspipe
