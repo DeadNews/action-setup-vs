@@ -32,4 +32,3 @@ runs:
         sudo make install -j2
         popd
         rm -rf vapoursynth
-
