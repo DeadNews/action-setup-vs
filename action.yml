@@ -10,9 +10,7 @@ runs:
   steps:
     - name: Install vapoursynth make-deps
       shell: bash
-      run: |
-        sudo apt update
-        sudo apt install cython3 libzimg-dev meson ninja-build g++
+      run: sudo apt install cython3 libzimg-dev meson ninja-build g++
 
     - name: Use ccache
       uses: hendrikmuhs/ccache-action@v1
@@ -34,5 +32,5 @@ runs:
         sudo make install -j2
         popd
         rm -rf vapoursynth
-      env:
-        LD_LIBRARY_PATH: /usr/local/lib
+      # env:
+      #   LD_LIBRARY_PATH: /usr/local/lib
