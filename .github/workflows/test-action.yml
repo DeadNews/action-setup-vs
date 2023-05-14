@@ -9,7 +9,7 @@ on:
     types: [created]
 
 jobs:
-  test-action:
+  test-install:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,6 +17,10 @@ jobs:
       - name: Install vapoursynth
         uses: ./
 
+  test-import:
+    needs: [test-install]
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
@@ -25,5 +29,5 @@ jobs:
       - name: Install vapoursynth (pip)
         run: pip install vapoursynth
 
-      - name: Check vapoursynth
+      - name: Check `import vapoursynth`
         run: python -c "import vapoursynth; print(vapoursynth.core.version_number())"
