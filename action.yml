@@ -1,10 +1,12 @@
 name: Install Vapoursynth
 description: Install Vapoursynth in the current runner
+
 inputs:
   version:
     description: Vapoursynth version to use, if version is not provided then latest stable version will be used
     required: true
     default: 62
+
 runs:
   using: composite
   steps:

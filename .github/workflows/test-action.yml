@@ -1,4 +1,4 @@
-name: CI
+name: Test GitHub Action
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
     types: [created]
 
 jobs:
-  test:
-    name: CI
+  test-action:
+    name: Check vapoursynth
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
