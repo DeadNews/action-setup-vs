@@ -34,3 +34,7 @@ runs:
         sudo make install -j2
         popd
         rm -rf vapoursynth
+
+    - name: Install vapoursynth (pip)
+      shell: bash
+      run: pip install vapoursynth
