@@ -22,11 +22,8 @@ jobs:
       - name: Install vapoursynth
         uses: ./
 
-      - name: Install vapoursynth (pip)
-        run: pip install vapoursynth
+      # - name: Install vapoursynth (pip)
+      #   run: pip install vapoursynth
 
       - name: Check `import vapoursynth`
         run: python -c "import vapoursynth; print(vapoursynth.core.version_number())"
-
-        # checking for python script directory (pythondir)... ${PYTHON_PREFIX}/lib/python3.11/site-packages
-        # checking for python extension module directory (pyexecdir)... ${PYTHON_EXEC_PREFIX}/lib/python3.11/site-packages

@@ -32,5 +32,7 @@ runs:
         ./configure --disable-x86-asm --disable-vspipe
         make -j2
         sudo make install -j2
+
+        pip install .
         popd
         rm -rf vapoursynth
