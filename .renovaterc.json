@@ -1,23 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "automerge": true,
-  "automergeSchedule": ["every weekend"],
-  "automergeStrategy": "squash",
-  "commitMessageAction": "update",
-  "dependencyDashboard": true,
-  "extends": ["config:base"],
-  "labels": ["deps"],
-  "platformAutomerge": true,
-  "pre-commit": {
-    "enabled": true
-  },
+  "extends": ["config:base", "github>DeadNews/renovate-config"],
   "regexManagers": [
     {
-      "fileMatch": ["^.github/(?:workflows|actions)/.+\\.ya?ml$"],
+      "fileMatch": ["^action\\.ya?ml$"],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[a-z-0-9]+?))?\\s+[A-Za-z0-9_]+?_VERSION\\s*:\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
+        "default: R(?<currentValue>.+?) # renovate: datasource=(?<datasource>[a-z-]+?) dep_name=(?<depName>[^\\s]+?)\\n"
       ]
     }
-  ],
-  "semanticCommits": "enabled"
+  ]
 }

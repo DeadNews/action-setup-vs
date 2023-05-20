@@ -1,3 +1,3 @@
 # action-vapoursynth-install
 
-Action to install Vapoursynth
+> Action to install Vapoursynth

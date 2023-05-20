@@ -1,0 +1,38 @@
+name: Install Vapoursynth
+description: Install Vapoursynth in the current runner
+
+inputs:
+  version:
+    description: Vapoursynth version to use, defaults to latest
+    required: true
+    default: R62 # renovate: datasource=pypi dep_name=vapoursynth
+
+runs:
+  using: composite
+  steps:
+    - name: Install vapoursynth make-deps
+      shell: bash
+      run: sudo apt install cython3 g++ libzimg-dev meson ninja-build
+
+    - name: Use ccache
+      uses: hendrikmuhs/ccache-action@v1
+      with:
+        key: ${{ inputs.version }}
+
+    - name: Configure shell
+      shell: bash
+      run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
+
+    - name: Install vapoursynth
+      shell: bash
+      run: |
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
+        pushd vapoursynth
+        ./autogen.sh
+        ./configure --disable-x86-asm --disable-vspipe
+        make -j2
+        sudo make install -j2
+
+        pip install .
+        popd
+        rm -rf vapoursynth
