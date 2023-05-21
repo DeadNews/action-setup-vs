@@ -22,7 +22,7 @@ runs:
       if: runner.os == 'linux'
       shell: bash
       run: |
-        sudo apt install cython3 g++-12
+        sudo apt install cython3
 
       # libzimg-dev
 
@@ -30,7 +30,7 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
-        brew install automake gcc zimg
+        brew install automake zimg
         pip3 install cython
 
     # - name: Set CC and CXX to use gcc-12
@@ -63,10 +63,10 @@ runs:
       if: runner.os == 'linux'
       shell: bash
       run: |
-        export CC=clang
-        export CXX=clang++
+        export CC=gcc-12
+        export CXX=g++-12
         export PATH="/usr/lib/ccache:$PATH"
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b
         pushd vapoursynth
         ./autogen.sh
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
