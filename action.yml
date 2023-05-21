@@ -33,12 +33,12 @@ runs:
         brew install automake zimg
         pip3 install cython
 
-    # - name: Set CC and CXX to use gcc-12
-    #   if: runner.os == 'linux'
-    #   shell: bash
-    #   run: |
-    #     echo "CC=gcc-12" >> $GITHUB_ENV
-    #     echo "CXX=g++-12" >> $GITHUB_ENV
+    - name: Set CC and CXX to use gcc-12
+      if: runner.os == 'linux'
+      shell: bash
+      run: |
+        echo "CC=gcc-12" >> $GITHUB_ENV
+        echo "CXX=g++-12" >> $GITHUB_ENV
 
     # - name: Use ccache
     #   if: runner.os == 'linux' || runner.os == 'macos'
