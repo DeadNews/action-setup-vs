@@ -26,7 +26,7 @@ runs:
       shell: bash
       run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
 
-    - name: Install vapoursynth
+    - name: Install vapoursynth (linux)
       if: runner.os == 'linux'
       shell: bash
       run: |
@@ -39,7 +39,10 @@ runs:
         popd
         rm -rf vapoursynth
 
-    - name: Install vapoursynth
+    - name: Install vapoursynth (macos)
       if: runner.os == 'macos'
       shell: bash
-      run: brew install vapoursynth@62
+      run: |
+        brew search vapoursynth@
+        brew install vapoursynth
+
