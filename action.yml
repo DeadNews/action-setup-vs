@@ -14,7 +14,6 @@ runs:
       if: runner.os == 'linux'
       shell: bash
       run: sudo apt install cython3 g++ libzimg-dev
-      # meson
 
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
@@ -54,7 +53,7 @@ runs:
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
         pushd vapoursynth
         ./autogen.sh
-        ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
+        ./configure --disable-x86-asm --disable-vspipe
         make -j3
         make install -j3
         popd
