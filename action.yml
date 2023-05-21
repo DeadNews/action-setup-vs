@@ -11,21 +11,23 @@ runs:
   using: composite
   steps:
     - name: Install vapoursynth make-deps
-      if: runner.os == 'Linux'
+      if: runner.os == 'linux'
       shell: bash
       run: sudo apt install cython3 g++ libzimg-dev meson ninja-build
 
     - name: Use ccache
+      if: runner.os == 'linux'
       uses: hendrikmuhs/ccache-action@v1
       with:
         key: ${{ runner.os }}-${{ inputs.version }}
 
     - name: Configure shell
+      if: runner.os == 'linux'
       shell: bash
       run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
 
     - name: Install vapoursynth
-      if: runner.os == 'Linux'
+      if: runner.os == 'linux'
       shell: bash
       run: |
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
@@ -36,3 +38,8 @@ runs:
         sudo make install -j2
         popd
         rm -rf vapoursynth
+
+    - name: Install vapoursynth
+      if: runner.os == 'macos'
+      shell: bash
+      run: brew install vapoursynth
