@@ -42,4 +42,4 @@ runs:
     - name: Install vapoursynth
       if: runner.os == 'macos'
       shell: bash
-      run: brew install vapoursynth
+      run: brew install vapoursynth@62
