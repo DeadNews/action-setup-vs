@@ -44,7 +44,6 @@ runs:
       with:
         key: ${{ runner.os }}-${{ inputs.python-version }}-${{ inputs.vs-version }}
 
-
     - name: Install zimg
       if: runner.os == 'linux'
       shell: bash
