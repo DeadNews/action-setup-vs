@@ -13,9 +13,11 @@ runs:
     - name: Install vapoursynth make-deps
       if: runner.os == 'linux'
       shell: bash
-      run: sudo apt install cython3 g++ libzimg-dev meson ninja-build
+      run: sudo apt install cython3 g++ libzimg-dev ninja-build
+      # meson
 
     - name: Echo CC and CXX
+      shell: bash
       run: |
         echo $CC
         echo $CXX
@@ -34,6 +36,7 @@ runs:
         key: ${{ runner.os }}-${{ inputs.version }}
 
     - name: Echo CC and CXX
+      shell: bash
       run: |
         echo $CC
         echo $CXX
