@@ -17,7 +17,7 @@ runs:
     - name: Use ccache
       uses: hendrikmuhs/ccache-action@v1
       with:
-        key: ${{ inputs.version }}
+        key: ${{ runner.os }}-${{ inputs.version }}
 
     - name: Configure shell
       shell: bash
