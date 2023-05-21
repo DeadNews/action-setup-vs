@@ -44,6 +44,20 @@ runs:
       with:
         key: ${{ runner.os }}-${{ inputs.python-version }}-${{ inputs.vs-version }}
 
+
+    - name: Install zimg
+      if: runner.os == 'linux'
+      shell: bash
+      run: |
+        git clone https://github.com/sekrit-twc/zimg --depth 1 --shallow-submodules --recurse-submodules
+        pushd zimg
+        ./autogen.sh
+        ./configure --prefix=/usr
+        make -j2
+        sudo make install -j2
+        popd
+        rm -rf zimg
+
     - name: Install vapoursynth
       if: runner.os == 'linux'
       shell: bash
