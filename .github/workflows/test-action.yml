@@ -10,19 +10,28 @@ on:
 
 jobs:
   test-action:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.10", "3.11"]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-
-      # - uses: actions/setup-python@v4
-      #   with:
-      #     python-version: "3.10"
 
       - name: Install vapoursynth
         uses: ./
 
-      # - name: Install vapoursynth (pip)
-      #   run: pip install vapoursynth
+      - name: Install poetry
+        run: pipx install poetry
 
-      # - name: Check `import vapoursynth`
-      #   run: python -c "import vapoursynth; print(vapoursynth.core.version_number())"
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Check vapoursynth
+        run: poetry run python -c "import vapoursynth; print(vapoursynth.core.version_number())"
