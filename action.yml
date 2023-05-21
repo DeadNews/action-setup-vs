@@ -21,8 +21,7 @@ runs:
     - name: Install vapoursynth make-deps
       if: runner.os == 'linux'
       shell: bash
-      run: |
-        sudo apt install cython3 g++-12
+      run: sudo apt install cython3 g++-12 libzimg-dev
 
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
@@ -43,19 +42,6 @@ runs:
       uses: hendrikmuhs/ccache-action@v1
       with:
         key: ${{ runner.os }}-${{ inputs.python-version }}-${{ inputs.vs-version }}
-
-    - name: Install zimg
-      if: runner.os == 'linux'
-      shell: bash
-      run: |
-        git clone https://github.com/sekrit-twc/zimg --depth 1 --shallow-submodules --recurse-submodules
-        pushd zimg
-        ./autogen.sh
-        ./configure --prefix=/usr
-        make -j2
-        sudo make install -j2
-        popd
-        rm -rf zimg
 
     - name: Install vapoursynth
       if: runner.os == 'linux'
