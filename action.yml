@@ -2,14 +2,21 @@ name: Install Vapoursynth
 description: Install Vapoursynth in the current runner
 
 inputs:
-  version:
+  vs-version:
     description: Vapoursynth version to use, defaults to latest
     required: true
     default: R62 # renovate: datasource=pypi dep_name=vapoursynth
+  python-version:
+    description: Vapoursynth python to use, defaults to latest
+    required: true
 
 runs:
   using: composite
   steps:
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
     - name: Install vapoursynth make-deps
       if: runner.os == 'linux'
       shell: bash
@@ -26,14 +33,14 @@ runs:
       if: runner.os == 'linux' || runner.os == 'macos'
       uses: hendrikmuhs/ccache-action@v1
       with:
-        key: ${{ runner.os }}-${{ inputs.version }}
+        key: ${{ runner.os }}-${{ inputs.vs-version }}
 
     - name: Install vapoursynth
       if: runner.os == 'linux'
       shell: bash
       run: |
         export PATH="/usr/lib/ccache:$PATH"
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
         ./autogen.sh
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
@@ -46,7 +53,7 @@ runs:
       shell: bash
       run: |
         export PATH="/usr/local/opt/ccache/libexec:$PATH"
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
         ./autogen.sh
         ./configure --disable-x86-asm --disable-vspipe
