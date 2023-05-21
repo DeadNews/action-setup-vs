@@ -18,7 +18,7 @@ runs:
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
       shell: bash
-      run: brew install cython zimg
+      run: brew install cython gcc zimg meson ninja
 
     - name: Use ccache
       if: runner.os == 'linux' || runner.os == 'macos'
