@@ -45,4 +45,3 @@ runs:
       run: |
         brew search vapoursynth@
         brew install vapoursynth
-
