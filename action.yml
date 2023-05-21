@@ -13,18 +13,10 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Setup python
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ inputs.python-version }}
-
     - name: Install vapoursynth make-deps
       if: runner.os == 'linux'
       shell: bash
-      run: |
-        sudo apt install cython3
-
-      # libzimg-dev
+      run: sudo apt install cython3 libzimg-dev
 
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
@@ -33,18 +25,11 @@ runs:
         brew install automake zimg
         pip3 install cython
 
-    - name: Set CC and CXX to use gcc-12
-      if: runner.os == 'linux'
-      shell: bash
-      run: |
-        echo "CC=gcc-12" >> $GITHUB_ENV
-        echo "CXX=g++-12" >> $GITHUB_ENV
-
-    # - name: Use ccache
-    #   if: runner.os == 'linux' || runner.os == 'macos'
-    #   uses: hendrikmuhs/ccache-action@v1
-    #   with:
-    #     key: ${{ runner.os }}-${{ inputs.python-version }}-${{ inputs.vs-version }}
+    - name: Use ccache
+      if: runner.os == 'linux' || runner.os == 'macos'
+      uses: hendrikmuhs/ccache-action@v1
+      with:
+        key: ${{ runner.os }}-${{ inputs.vs-version }}
 
     - name: Install zimg
       if: runner.os == 'linux'
@@ -63,10 +48,8 @@ runs:
       if: runner.os == 'linux'
       shell: bash
       run: |
-        export CC=gcc-12
-        export CXX=g++-12
         export PATH="/usr/lib/ccache:$PATH"
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
         ./autogen.sh
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
@@ -86,3 +69,13 @@ runs:
         make -j3
         make install -j3
         popd
+
+    - name: Setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install vapoursynth (pip)
+      if: runner.os == 'linux' || runner.os == 'macos'
+      shell: bash
+      run: pip3 install vapoursynth
