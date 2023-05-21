@@ -37,7 +37,7 @@ runs:
     - name: Configure shell
       if: runner.os == 'macos'
       shell: bash
-      run: echo '/usr/local/opt/ccache/libexec:'"$PATH" >> $GITHUB_ENV
+      run: echo 'PATH=/usr/local/opt/ccache/libexec:'"$PATH" >> $GITHUB_ENV
 
     - name: Install vapoursynth
       if: runner.os == 'linux'
