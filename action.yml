@@ -19,7 +19,7 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
-        brew install gcc zimg automake
+        brew install automake gcc zimg
         pip3 install cython
 
     - name: Use ccache
@@ -33,7 +33,6 @@ runs:
       shell: bash
       run: |
         export PATH="/usr/lib/ccache:$PATH"
-
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
         pushd vapoursynth
         ./autogen.sh
@@ -41,14 +40,12 @@ runs:
         make -j2
         sudo make install -j2
         popd
-        rm -rf vapoursynth
 
     - name: Install vapoursynth
       if: runner.os == 'macos'
       shell: bash
       run: |
         export PATH="/usr/local/opt/ccache/libexec:$PATH"
-
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
         pushd vapoursynth
         ./autogen.sh
@@ -56,4 +53,3 @@ runs:
         make -j3
         make install -j3
         popd
-        rm -rf vapoursynth
