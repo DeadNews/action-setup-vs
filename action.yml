@@ -39,8 +39,6 @@ runs:
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
         make -j2
         sudo make install -j2
-        debmake
-        debuild
         popd
 
     - name: Install vapoursynth
