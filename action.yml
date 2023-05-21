@@ -20,7 +20,7 @@ runs:
     - name: Install vapoursynth make-deps
       if: runner.os == 'linux'
       shell: bash
-      run: sudo apt install cython3 g++ libzimg-dev
+      run: sudo apt install cython3 g++-12 libzimg-dev
 
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
