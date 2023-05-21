@@ -35,7 +35,7 @@ runs:
       run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
 
     - name: Install vapoursynth
-      if: runner.os == 'linux' || runner.os == 'macos'
+      if: runner.os == 'linux'
       shell: bash
       run: |
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
@@ -44,5 +44,18 @@ runs:
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
         make -j2
         sudo make install -j2
+        popd
+        rm -rf vapoursynth
+
+    - name: Install vapoursynth
+      if: runner.os == 'macos'
+      shell: bash
+      run: |
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
+        pushd vapoursynth
+        ./autogen.sh
+        ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
+        make -j3
+        make install -j3
         popd
         rm -rf vapoursynth
