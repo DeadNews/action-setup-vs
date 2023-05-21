@@ -21,7 +21,9 @@ runs:
     - name: Install vapoursynth make-deps
       if: runner.os == 'linux'
       shell: bash
-      run: sudo apt install cython3 g++-12 libzimg-dev
+      run: |
+        sudo apt install cython3 g++-12 libzimg-dev
+        pip3 install cython
 
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
@@ -41,7 +43,7 @@ runs:
       shell: bash
       run: |
         export PATH="/usr/lib/ccache:$PATH"
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
         ./autogen.sh
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
