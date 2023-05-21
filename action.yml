@@ -10,15 +10,15 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Install vapoursynth make-deps (linux)
+    - name: Install vapoursynth make-deps
       if: runner.os == 'linux'
       shell: bash
       run: sudo apt install cython3 g++ libzimg-dev meson ninja-build
 
-    - name: Install vapoursynth make-deps (macos)
+    - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
       shell: bash
-      run: brew install cython libzimg
+      run: brew install cython zimg
 
     - name: Use ccache
       if: runner.os == 'linux' || runner.os == 'macos'
