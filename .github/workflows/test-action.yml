@@ -22,12 +22,16 @@ jobs:
       - name: Install vapoursynth
         uses: ./
 
+      - name: Install poetry
+        run: pipx install poetry
+
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+          cache: poetry
 
-      - name: Install vapoursynth (pip)
-        run: pip install vapoursynth
+      - name: Install dependencies
+        run: poetry install
 
-      - name: Check `import vapoursynth`
-        run: python -c "import vapoursynth; print(vapoursynth.core.version_number())"
+      - name: Check vapoursynth
+        run: poetry run python -c "import vapoursynth; print(vapoursynth.core.version_number())"

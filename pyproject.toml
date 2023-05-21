@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "action-vapoursynth-install"
+version = "0.0.0"
+description = "Action to install Vapoursynth "
+authors = ["DeadNews <aurczpbgr@mozmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+vapoursynth = ">=60"
