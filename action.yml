@@ -13,33 +13,21 @@ runs:
     - name: Install vapoursynth make-deps
       if: runner.os == 'linux'
       shell: bash
-      run: sudo apt install cython3 g++ libzimg-dev ninja-build
+      run: sudo apt install cython3 g++ libzimg-dev
       # meson
-
-    - name: Echo CC and CXX
-      shell: bash
-      run: |
-        echo $CC
-        echo $CXX
 
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
       shell: bash
       run: |
         brew install cython gcc zimg meson ninja automake
-        pip install cython
+        pip3 install cython
 
     - name: Use ccache
       if: runner.os == 'linux' || runner.os == 'macos'
       uses: hendrikmuhs/ccache-action@v1
       with:
         key: ${{ runner.os }}-${{ inputs.version }}
-
-    - name: Echo CC and CXX
-      shell: bash
-      run: |
-        echo $CC
-        echo $CXX
 
     - name: Configure shell
       if: runner.os == 'linux' || runner.os == 'macos'
