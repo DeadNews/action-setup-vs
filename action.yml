@@ -2,18 +2,19 @@ name: Install Vapoursynth
 description: Install Vapoursynth in the current runner
 
 inputs:
+  python-version:
+    description: Python version to use
+    required: true
   vs-version:
     description: Vapoursynth version to use, defaults to latest
     required: true
     default: R62 # renovate: datasource=pypi dep_name=vapoursynth
-  python-version:
-    description: Vapoursynth python to use, defaults to latest
-    required: true
 
 runs:
   using: composite
   steps:
-    - uses: actions/setup-python@v4
+    - name: Setup python
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ inputs.python-version }}
 
@@ -40,7 +41,7 @@ runs:
       shell: bash
       run: |
         export PATH="/usr/lib/ccache:$PATH"
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1
         pushd vapoursynth
         ./autogen.sh
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
