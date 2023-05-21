@@ -48,8 +48,8 @@ runs:
       if: runner.os == 'linux'
       shell: bash
       run: |
-        export CC=gcc-12
-        export CXX=g++-12
+        export CC=clang
+        export CXX=clang++
         export PATH="/usr/lib/ccache:$PATH"
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
