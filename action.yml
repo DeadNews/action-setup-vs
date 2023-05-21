@@ -15,16 +15,28 @@ runs:
       shell: bash
       run: sudo apt install cython3 g++ libzimg-dev meson ninja-build
 
+    - name: Echo CC and CXX
+      run: |
+        echo $CC
+        echo $CXX
+
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos'
       shell: bash
-      run: brew install cython gcc zimg meson ninja automake
+      run: |
+        brew install cython gcc zimg meson ninja automake
+        pip install cython
 
     - name: Use ccache
       if: runner.os == 'linux' || runner.os == 'macos'
       uses: hendrikmuhs/ccache-action@v1
       with:
         key: ${{ runner.os }}-${{ inputs.version }}
+
+    - name: Echo CC and CXX
+      run: |
+        echo $CC
+        echo $CXX
 
     - name: Configure shell
       if: runner.os == 'linux' || runner.os == 'macos'
