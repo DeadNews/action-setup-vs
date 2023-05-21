@@ -19,7 +19,7 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
-        brew install libcython gcc zimg automake
+        brew install cython libcython gcc zimg automake
 
       # pip3 install cython
 
