@@ -13,13 +13,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest]
         python-version: ["3.10", "3.11"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
 
       - name: Install vapoursynth
+        if: runner.os == 'ubuntu'
         uses: ./
 
       - uses: actions/setup-python@v4
