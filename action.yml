@@ -2,9 +2,6 @@ name: Install Vapoursynth
 description: Install Vapoursynth in the current runner
 
 inputs:
-  python-version:
-    description: Python version to use
-    required: true
   vs-version:
     description: Vapoursynth version to use, defaults to latest
     required: true
@@ -58,13 +55,3 @@ runs:
         make -j3
         make install -j3
         popd
-
-    - name: Setup python
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ inputs.python-version }}
-
-    - name: Install vapoursynth (pip)
-      if: runner.os == 'linux' || runner.os == 'macos'
-      shell: bash
-      run: pip3 install vapoursynth
