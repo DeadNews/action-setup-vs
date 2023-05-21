@@ -19,7 +19,7 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
-        brew install cython gcc zimg meson ninja automake
+        brew install cython gcc zimg automake
         pip3 install cython
 
     - name: Use ccache
