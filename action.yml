@@ -19,8 +19,9 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
-        brew install cython gcc zimg automake
-        pip3 install cython
+        brew install libcython gcc zimg automake
+
+      # pip3 install cython
 
     - name: Use ccache
       if: runner.os == 'linux' || runner.os == 'macos'
@@ -29,9 +30,14 @@ runs:
         key: ${{ runner.os }}-${{ inputs.version }}
 
     - name: Configure shell
-      if: runner.os == 'linux' || runner.os == 'macos'
+      if: runner.os == 'linux'
       shell: bash
       run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
+
+    - name: Configure shell
+      if: runner.os == 'macos'
+      shell: bash
+      run: echo '/usr/local/opt/ccache/libexec:'"$PATH" >> $GITHUB_ENV
 
     - name: Install vapoursynth
       if: runner.os == 'linux'
