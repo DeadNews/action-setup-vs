@@ -8,6 +8,9 @@ on:
   release:
     types: [created]
 
+env:
+  LD_LIBRARY_PATH: /usr/local/lib
+
 jobs:
   test-action:
     runs-on: ubuntu-latest
