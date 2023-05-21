@@ -11,6 +11,7 @@ runs:
   using: composite
   steps:
     - name: Install vapoursynth make-deps
+      if: runner.os == 'Linux'
       shell: bash
       run: sudo apt install cython3 g++ libzimg-dev meson ninja-build
 
@@ -24,6 +25,7 @@ runs:
       run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
 
     - name: Install vapoursynth
+      if: runner.os == 'Linux'
       shell: bash
       run: |
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
