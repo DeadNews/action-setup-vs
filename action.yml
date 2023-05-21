@@ -29,20 +29,12 @@ runs:
       with:
         key: ${{ runner.os }}-${{ inputs.version }}
 
-    - name: Configure shell
-      if: runner.os == 'linux'
-      shell: bash
-      run: echo 'PATH=/usr/lib/ccache:'"$PATH" >> $GITHUB_ENV
-
-    - name: Configure shell
-      if: runner.os == 'macos'
-      shell: bash
-      run: echo 'PATH=/usr/local/opt/ccache/libexec:'"$PATH" >> $GITHUB_ENV
-
     - name: Install vapoursynth
       if: runner.os == 'linux'
       shell: bash
       run: |
+        export PATH="/usr/lib/ccache:$PATH"
+
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
         pushd vapoursynth
         ./autogen.sh
@@ -56,6 +48,8 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
+        export PATH="/usr/local/opt/ccache/libexec:$PATH"
+
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.version }}
         pushd vapoursynth
         ./autogen.sh
