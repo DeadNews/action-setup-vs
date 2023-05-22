@@ -1,5 +1,5 @@
 name: Setup Vapoursynth
-description: Setup Vapoursynth in the current runner (linux|macos)
+description: Setup Vapoursynth in the current runner
 
 inputs:
   vs-version:
