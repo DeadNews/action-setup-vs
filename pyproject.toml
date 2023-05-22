@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "action-vapoursynth-install"
+name = "setup-vapoursynth"
 version = "0.0.0"
-description = "Action to install Vapoursynth "
+description = "Action to setup Vapoursynth "
 authors = ["DeadNews <aurczpbgr@mozmail.com>"]
 
 [tool.poetry.dependencies]
