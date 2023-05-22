@@ -55,3 +55,7 @@ runs:
         make install -j3
         popd
         rm -rf vapoursynth
+
+branding:
+  icon: video
+  color: gray-dark
