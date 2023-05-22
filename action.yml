@@ -40,6 +40,7 @@ runs:
         make -j2
         sudo make install -j2
         popd
+        rm -rf vapoursynth
 
     - name: Install vapoursynth
       if: runner.os == 'macos'
@@ -53,3 +54,4 @@ runs:
         make -j3
         make install -j3
         popd
+        rm -rf vapoursynth
