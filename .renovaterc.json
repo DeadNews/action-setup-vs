@@ -4,9 +4,20 @@
   "regexManagers": [
     {
       "fileMatch": ["^action\\.ya?ml$"],
+      "description": "Update references in the action.yml",
       "matchStrings": [
         "default: R(?<currentValue>.+?) # renovate: datasource=(?<datasource>[a-z-]+?) dep_name=(?<depName>[^\\s]+?)\\n"
       ]
+    },
+    {
+      "datasourceTemplate": "github-tags",
+      "description": "Update Github Action references in the Markdown files",
+      "fileMatch": ["\\.md$"],
+      "matchStrings": [
+        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
+        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentDigest>[a-z0-9]{40}|[a-z0-9]{64}) # tag=(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+      ],
+      "versioningTemplate": "semver"
     }
   ]
 }
