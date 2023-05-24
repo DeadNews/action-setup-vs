@@ -1,6 +1,7 @@
 name: Dependency Review
 
-on: [pull_request]
+on:
+  pull_request:
 
 permissions:
   contents: read
@@ -11,4 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/dependency-review-action@v3
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v3

@@ -1,4 +1,4 @@
-name: Test GitHub Action
+name: Test Action
 
 on:
   push:
@@ -9,7 +9,8 @@ on:
     types: [created]
 
 jobs:
-  test-action:
+  tests:
+    name: Tests
     strategy:
       fail-fast: false
       matrix:
@@ -30,7 +31,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: poetry
 
-      - name: Install dependencies
+      - name: Install deps
         run: poetry install
 
       - name: Check vapoursynth

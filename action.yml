@@ -27,6 +27,7 @@ runs:
       uses: hendrikmuhs/ccache-action@v1
       with:
         key: ${{ runner.os }}-${{ inputs.vs-version }}
+        append-timestamp: false
 
     - name: Install vapoursynth
       if: runner.os == 'linux'
