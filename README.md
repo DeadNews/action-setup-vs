@@ -9,12 +9,12 @@
 
 ```yaml
 - name: Setup vapoursynth
-  uses: deadnews/setup-vapoursynth@v1
+  uses: deadnews/setup-vapoursynth@v0.0.1
 ```
 
 - [Example to get started](https://github.com/DeadNews/setup-vapoursynth/blob/main/.github/workflows/test-action.yml)
 
-## Supported Runners
+## Supported runners
 
 - linux
 - macos
