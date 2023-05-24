@@ -3,8 +3,8 @@
   "extends": ["config:base", "github>DeadNews/renovate-config"],
   "regexManagers": [
     {
-      "fileMatch": ["^action\\.ya?ml$"],
       "description": "Update references in the action.yml",
+      "fileMatch": ["^action\\.ya?ml$"],
       "matchStrings": [
         "default: R(?<currentValue>.+?) # renovate: datasource=(?<datasource>[a-z-]+?) dep_name=(?<depName>[^\\s]+?)\\n"
       ]
@@ -17,6 +17,7 @@
         "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
         "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentDigest>[a-z0-9]{40}|[a-z0-9]{64}) # tag=(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
+      "semanticCommitType": "docs",
       "versioningTemplate": "semver"
     }
   ]
