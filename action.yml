@@ -24,7 +24,7 @@ runs:
 
     - name: Use ccache
       if: runner.os == 'linux' || runner.os == 'macos'
-      uses: hendrikmuhs/ccache-action@v1.2
+      uses: hendrikmuhs/ccache-action@v1
       with:
         key: ${{ runner.os }}-${{ inputs.vs-version }}
         append-timestamp: false
