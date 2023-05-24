@@ -24,9 +24,10 @@ runs:
 
     - name: Use ccache
       if: runner.os == 'linux' || runner.os == 'macos'
-      uses: hendrikmuhs/ccache-action@v1
+      uses: hendrikmuhs/ccache-action@v1.2
       with:
         key: ${{ runner.os }}-${{ inputs.vs-version }}
+        append-timestamp: false
 
     - name: Install vapoursynth
       if: runner.os == 'linux'
