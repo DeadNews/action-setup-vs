@@ -36,13 +36,11 @@ runs:
         export PATH="/usr/lib/ccache:$PATH"
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
-        ls -lh
+        rm -rf .git installer doc msvc_project
         ./autogen.sh
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
         make -j2
-        ls -lh
         sudo make install -j2
-        ls -lh
         popd
         rm -rf vapoursynth
 
@@ -53,13 +51,11 @@ runs:
         export PATH="/usr/local/opt/ccache/libexec:$PATH"
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
-        ls -lh
+        rm -rf .git installer doc msvc_project
         ./autogen.sh
         ./configure --disable-x86-asm --disable-vspipe
         make -j3
-        ls -lh
         make install -j3
-        ls -lh
         popd
         rm -rf vapoursynth
 
