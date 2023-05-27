@@ -63,7 +63,7 @@ runs:
       if: (runner.os == 'linux' || runner.os == 'macos') && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
       run: |
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }} /tmp/vapoursynth
+        git clone https://github.com/vapoursynth/vapoursynth /tmp/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         cd /tmp/vapoursynth
         ./autogen.sh
         ./configure --prefix=$PREFIX --disable-x86-asm --disable-vspipe
