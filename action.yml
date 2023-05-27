@@ -66,8 +66,8 @@ runs:
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
         ./autogen.sh
-        ./configure --prefix=${{ env.PREFIX }} --disable-x86-asm --disable-vspipe
-        make -j${{ env.CORES }}
+        ./configure --prefix=$PREFIX --disable-x86-asm --disable-vspipe
+        make -j$CORES
 
     - name: Install vapoursynth
       if: runner.os == 'linux' || runner.os == 'macos'
@@ -75,7 +75,7 @@ runs:
       run: |
         echo $MAKEFLAGS
         pushd vapoursynth
-        sudo make install -j${{ env.CORES }}
+        sudo make install -j$CORES
         popd
       # rm -rf vapoursynth
 # MAKEFLAGS
