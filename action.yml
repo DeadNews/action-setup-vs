@@ -17,11 +17,11 @@ runs:
       with:
         key: vs-${{ runner.os }}-${{ inputs.vs-version }}
         path: |
-          vapoursynth/*
-          !vapoursynth/.git
-          !vapoursynth/doc
-          !vapoursynth/installer
-          !vapoursynth/msvc_project
+          /tmp/vapoursynth/*
+          !/tmp/vapoursynth/.git
+          !/tmp/vapoursynth/doc
+          !/tmp/vapoursynth/installer
+          !/tmp/vapoursynth/msvc_project
 
     - name: Set env vars
       if: runner.os == 'linux'
@@ -63,8 +63,8 @@ runs:
       if: (runner.os == 'linux' || runner.os == 'macos') && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
       run: |
-        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
-        cd vapoursynth
+        git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }} /tmp/vapoursynth
+        cd /tmp/vapoursynth
         ./autogen.sh
         ./configure --prefix=$PREFIX --disable-x86-asm --disable-vspipe
         make -j$CORES
@@ -73,7 +73,7 @@ runs:
       if: runner.os == 'linux' || runner.os == 'macos'
       shell: bash
       run: |
-        cd vapoursynth
+        cd /tmp/vapoursynth
         sudo make install -j$CORES
 
 branding:
