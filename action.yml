@@ -27,8 +27,13 @@ runs:
       id: cache-vs
       uses: actions/cache@v3
       with:
-        path: ./vapoursynth
         key: vs-${{ runner.os }}-${{ inputs.vs-version }}
+        path: |
+          ./vapoursynth/*
+          !./vapoursynth/.git
+          !./vapoursynth/doc
+          !./vapoursynth/installer
+          !./vapoursynth/msvc_project
 
     - name: Make vapoursynth
       if: (runner.os == 'linux' || runner.os == 'macos') && steps.cache-vs.outputs.cache-hit != 'true'
@@ -37,7 +42,6 @@ runs:
         echo $(nproc)
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
-        rm -rf .git installer doc msvc_project
         ./autogen.sh
         if [ ${{ runner.os }} == 'linux' ]; then
           ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
