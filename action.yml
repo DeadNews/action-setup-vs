@@ -26,7 +26,7 @@ runs:
       id: cache-vs
       uses: actions/cache@v3
       with:
-        path: vapoursynth
+        path: ./vapoursynth
         key: vs-${{ runner.os }}-${{ inputs.vs-version }}
 
     - name: Use ccache
