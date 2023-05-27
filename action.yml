@@ -33,19 +33,20 @@ runs:
       if: runner.os == 'linux' && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
       run: |
+        echo $(nproc)
         git clone https://github.com/vapoursynth/vapoursynth --depth 1 -b ${{ inputs.vs-version }}
         pushd vapoursynth
         rm -rf .git installer doc msvc_project
         ./autogen.sh
         ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
-        make -j2
+        make -j$(nproc)
 
     - name: Make vapoursynth
       if: runner.os == 'linux'
       shell: bash
       run: |
         pushd vapoursynth
-        sudo make install -j2
+        sudo make install -j$(nproc)
         popd
       # rm -rf vapoursynth
 
@@ -57,7 +58,7 @@ runs:
         pushd vapoursynth
         rm -rf .git installer doc msvc_project
         ./autogen.sh
-        ./configure --disable-x86-asm --disable-vspipe
+        ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
         make -j3
 
     - name: Install vapoursynth
