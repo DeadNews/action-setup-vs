@@ -39,7 +39,11 @@ runs:
         pushd vapoursynth
         rm -rf .git installer doc msvc_project
         ./autogen.sh
-        ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
+        if [ ${{ runner.os }} == 'linux' ]; then
+          ./configure --prefix=/usr --disable-x86-asm --disable-vspipe
+        elif [ ${{ runner.os }} == 'macos' ]; then
+          ./configure --disable-x86-asm --disable-vspipe
+        fi
         make -j$(nproc)
 
     - name: Install vapoursynth
