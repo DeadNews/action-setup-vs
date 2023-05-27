@@ -1,6 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base", "github>DeadNews/renovate-config"],
+  "packageRules": [
+    {
+      "addLabels": ["docs"],
+      "description": "Use docs semantic type for markdown files updates",
+      "fileMatch": ["\\.md$"],
+      "semanticCommitType": "docs"
+    }
+  ],
   "regexManagers": [
     {
       "description": "Update references in the action.yml",
@@ -11,12 +19,12 @@
     },
     {
       "datasourceTemplate": "github-tags",
-      "description": "Update Github Action references in the Markdown files",
-      "fileMatch": ["README\\.md$"],
+      "description": "Update Github Action references in the markdown files",
+      "fileMatch": ["\\.md$"],
       "matchStrings": [
-        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)",
+        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentDigest>[a-z0-9]{40}|[a-z0-9]{64}) # tag=(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
-      "semanticCommitType": "docs",
       "versioningTemplate": "semver"
     }
   ]
