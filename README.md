@@ -10,6 +10,11 @@
 ```yaml
 - name: Setup vapoursynth
   uses: deadnews/setup-vapoursynth@v0.0.1
+
+# or use digest pinning:
+
+- name: Setup vapoursynth
+  uses: deadnews/setup-vapoursynth@b5442345e74c3ba091dd61a8a62ac2f6b5c8bf38 # v0.0.1
 ```
 
 - [Example to get started](https://github.com/DeadNews/setup-vapoursynth/blob/main/.github/workflows/test-action.yml)
