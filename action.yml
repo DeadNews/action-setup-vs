@@ -22,6 +22,13 @@ runs:
         brew install automake zimg
         pip3 install cython
 
+    - name: Cache vapoursynth
+      id: cache-vs
+      uses: actions/cache@v3
+      with:
+        path: vapoursynth
+        key: vs-${{ runner.os }}-${{ inputs.vs-version }}
+
     - name: Use ccache
       if: runner.os == 'linux' || runner.os == 'macos'
       uses: hendrikmuhs/ccache-action@v1
@@ -30,7 +37,7 @@ runs:
         append-timestamp: false
 
     - name: Install vapoursynth
-      if: runner.os == 'linux'
+      if: runner.os == 'linux' && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
       run: |
         export PATH="/usr/lib/ccache:$PATH"
@@ -45,7 +52,7 @@ runs:
         rm -rf vapoursynth
 
     - name: Install vapoursynth
-      if: runner.os == 'macos'
+      if: runner.os == 'macos' && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
       run: |
         export PATH="/usr/local/opt/ccache/libexec:$PATH"
