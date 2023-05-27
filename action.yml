@@ -49,7 +49,8 @@ runs:
         make -j2
         sudo make install -j2
         popd
-        rm -rf vapoursynth
+
+      # rm -rf vapoursynth
 
     - name: Install vapoursynth
       if: runner.os == 'macos' && steps.cache-vs.outputs.cache-hit != 'true'
@@ -64,7 +65,8 @@ runs:
         make -j3
         make install -j3
         popd
-        rm -rf vapoursynth
+
+      # rm -rf vapoursynth
 
 branding:
   icon: video
