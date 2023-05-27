@@ -45,6 +45,7 @@ runs:
       if: runner.os == 'linux'
       shell: bash
       run: |
+        echo $(nproc)
         pushd vapoursynth
         sudo make install -j$(nproc)
         popd
@@ -65,6 +66,7 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
+        echo $(nproc)
         pushd vapoursynth
         sudo make install -j3
         popd
