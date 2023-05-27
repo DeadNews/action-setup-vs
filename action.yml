@@ -64,6 +64,7 @@ runs:
       shell: bash
       run: |
         echo ${{ env.CORES }}
+        ls -lh
         pushd vapoursynth
         sudo make install -j${{ env.CORES }}
         popd
