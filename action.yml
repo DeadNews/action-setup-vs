@@ -44,6 +44,7 @@ runs:
       if: runner.os == 'linux'
       shell: bash
       run: |
+        pushd vapoursynth
         sudo make install -j2
         popd
       # rm -rf vapoursynth
@@ -63,6 +64,7 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
+        pushd vapoursynth
         sudo make install -j3
         popd
       # rm -rf vapoursynth
