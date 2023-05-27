@@ -50,9 +50,7 @@ runs:
       shell: bash
       run: |
         echo "CORES=$(nproc)" >> $GITHUB_ENV
-        echo "PREFIX=/usr" >> $GITHUB_ENV
-
-    # /local
+        echo "PREFIX=/usr/local" >> $GITHUB_ENV
 
     - name: Set env vars
       if: runner.os == 'macos'
