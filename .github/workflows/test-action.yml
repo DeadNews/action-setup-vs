@@ -32,10 +32,7 @@ jobs:
           cache: poetry
 
       - name: Install deps
-        # run: poetry install
-        run: |
-          poetry env use ${{ matrix.python-version }}
-          poetry install
+        run: poetry install
 
       - name: Check vapoursynth
         run: poetry run python -c "import vapoursynth; print(vapoursynth.core.version_number())"
