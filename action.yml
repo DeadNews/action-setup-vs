@@ -31,7 +31,7 @@ runs:
         key: vs-${{ runner.os }}-${{ inputs.vs-version }}
 
     - name: Make vapoursynth
-      if: runner.os == 'linux' || runner.os == 'macos' && steps.cache-vs.outputs.cache-hit != 'true'
+      if: (runner.os == 'linux' || runner.os == 'macos') && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
       run: |
         echo $(nproc)
