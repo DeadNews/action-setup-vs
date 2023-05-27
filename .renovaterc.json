@@ -5,7 +5,7 @@
     {
       "addLabels": ["docs"],
       "description": "Use docs semantic type for markdown files updates",
-      "fileMatch": ["\\.md$"],
+      "matchPaths": ["**/*.md"],
       "semanticCommitType": "docs"
     }
   ],
