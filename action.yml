@@ -23,6 +23,20 @@ runs:
           !vapoursynth/installer
           !vapoursynth/msvc_project
 
+    - name: Set env vars
+      if: runner.os == 'linux'
+      shell: bash
+      run: |
+        echo "CORES=$(nproc)" >> $GITHUB_ENV
+        echo "PREFIX=/usr" >> $GITHUB_ENV
+
+    - name: Set env vars
+      if: runner.os == 'macos'
+      shell: bash
+      run: |
+        echo "CORES=$(sysctl -n hw.ncpu)" >> $GITHUB_ENV
+        echo "PREFIX=/usr/local" >> $GITHUB_ENV
+
     - name: Install vapoursynth deps
       if: runner.os == 'linux'
       shell: bash
@@ -45,20 +59,6 @@ runs:
         brew install automake
         pip3 install cython
 
-    - name: Set env vars
-      if: runner.os == 'linux'
-      shell: bash
-      run: |
-        echo "CORES=$(nproc)" >> $GITHUB_ENV
-        echo "PREFIX=/usr" >> $GITHUB_ENV
-
-    - name: Set env vars
-      if: runner.os == 'macos'
-      shell: bash
-      run: |
-        echo "CORES=$(sysctl -n hw.ncpu)" >> $GITHUB_ENV
-        echo "PREFIX=/usr/local" >> $GITHUB_ENV
-
     - name: Make vapoursynth
       if: (runner.os == 'linux' || runner.os == 'macos') && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
@@ -75,7 +75,6 @@ runs:
       run: |
         cd vapoursynth
         sudo make install -j$CORES
-      # rm -rf vapoursynth
 
 branding:
   icon: video
