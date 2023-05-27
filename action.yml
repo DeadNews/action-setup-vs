@@ -10,18 +10,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Install vapoursynth make-deps
-      if: runner.os == 'linux'
-      shell: bash
-      run: sudo apt install cython3 libzimg-dev
-
-    - name: Install vapoursynth make-deps
-      if: runner.os == 'macos'
-      shell: bash
-      run: |
-        brew install automake zimg
-        pip3 install cython
-
     - name: Cache vapoursynth
       if: runner.os == 'linux' || runner.os == 'macos'
       id: cache-vs
@@ -29,11 +17,33 @@ runs:
       with:
         key: vs-${{ runner.os }}-${{ inputs.vs-version }}
         path: |
-          ./vapoursynth/*
-          !./vapoursynth/.git
-          !./vapoursynth/doc
-          !./vapoursynth/installer
-          !./vapoursynth/msvc_project
+          vapoursynth/*
+          !vapoursynth/.git
+          !vapoursynth/doc
+          !vapoursynth/installer
+          !vapoursynth/msvc_project
+
+    - name: Install vapoursynth deps
+      if: runner.os == 'linux'
+      shell: bash
+      run: sudo apt install libzimg-dev
+
+    - name: Install vapoursynth deps
+      if: runner.os == 'macos'
+      shell: bash
+      run: brew install zimg
+
+    - name: Install vapoursynth make-deps
+      if: runner.os == 'linux' && steps.cache-vs.outputs.cache-hit != 'true'
+      shell: bash
+      run: sudo apt install cython3
+
+    - name: Install vapoursynth make-deps
+      if: runner.os == 'macos' && steps.cache-vs.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        brew install automake
+        pip3 install cython
 
     - name: Set env vars
       if: runner.os == 'linux'
