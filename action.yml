@@ -19,10 +19,11 @@ runs:
       if: runner.os == 'macos'
       shell: bash
       run: |
-        brew install automake zimg
+        brew install automake zimg coreutils
         pip3 install cython
 
     - name: Cache vapoursynth
+      if: runner.os == 'linux' || runner.os == 'macos'
       id: cache-vs
       uses: actions/cache@v3
       with:
@@ -30,7 +31,7 @@ runs:
         key: vs-${{ runner.os }}-${{ inputs.vs-version }}
 
     - name: Make vapoursynth
-      if: runner.os == 'linux' && steps.cache-vs.outputs.cache-hit != 'true'
+      if: runner.os == 'linux' || runner.os == 'macos' && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
       run: |
         echo $(nproc)
