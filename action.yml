@@ -52,6 +52,8 @@ runs:
         echo "CORES=$(nproc)" >> $GITHUB_ENV
         echo "PREFIX=/usr" >> $GITHUB_ENV
 
+    # /local
+
     - name: Set env vars
       if: runner.os == 'macos'
       shell: bash
@@ -74,7 +76,6 @@ runs:
       shell: bash
       run: |
         pushd vapoursynth
-        ls -lh
         sudo make install -j${{ env.CORES }}
         popd
       # rm -rf vapoursynth
