@@ -11,7 +11,7 @@
 - name: Setup vapoursynth
   uses: deadnews/setup-vapoursynth@v0.0.2
 
-# or use digest pinning:
+# or with digest pinning:
 
 - name: Setup vapoursynth
   uses: deadnews/setup-vapoursynth@5f9df5cb56a70f99fbbc4667f50f155ec480ce41 # v0.0.2
