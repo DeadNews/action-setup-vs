@@ -6,13 +6,13 @@
       "addLabels": ["docs"],
       "description": "Use docs semantic type for markdown files updates",
       "matchPaths": ["**/*.md"],
-      "schedule": [],
+      "schedule": ["at any time"],
       "semanticCommitType": "docs"
     },
     {
       "description": "Ignore schedule for vapoursynth",
       "matchPackageNames": ["vapoursynth"],
-      "schedule": []
+      "schedule": ["at any time"]
     }
   ],
   "regexManagers": [
