@@ -12,6 +12,7 @@
     {
       "description": "Ignore schedule for vapoursynth",
       "matchPackageNames": ["vapoursynth"],
+      "minimumReleaseAge": "0 days",
       "schedule": ["at any time"]
     }
   ],
