@@ -5,7 +5,7 @@ inputs:
   vs-version:
     description: Vapoursynth version to use, defaults to latest
     required: true
-    default: R62 # renovate: datasource=pypi dep_name=vapoursynth
+    default: R63 # renovate: datasource=pypi dep_name=vapoursynth
 
 runs:
   using: composite

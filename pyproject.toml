@@ -6,4 +6,4 @@ authors = ["DeadNews <aurczpbgr@mozmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-vapoursynth = ">=60"
+vapoursynth = "^64"
