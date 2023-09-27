@@ -1,6 +1,6 @@
 # action-setup-vs
 
-> Action to setup [Vapoursynth](https://github.com/vapoursynth/vapoursynth)
+> Action to setup [VapourSynth](https://github.com/vapoursynth/vapoursynth)
 
 [![Test Action](https://github.com/DeadNews/action-setup-vs/actions/workflows/test-action.yml/badge.svg)](https://github.com/DeadNews/action-setup-vs/actions/workflows/test-action.yml)
 [![pre-commit.ci](https://results.pre-commit.ci/badge/github/DeadNews/action-setup-vs/main.svg)](https://results.pre-commit.ci/latest/github/DeadNews/action-setup-vs/main)
