@@ -16,7 +16,7 @@
 - name: Setup vapoursynth
   uses: deadnews/action-setup-vs@fadda5203c6596b3c0c4d975a5bfdc0f6f09cac9 # v1.0.0
 
-# or with `latest` tag, which is auto-updated on a schedule.
+# or with `latest` tag, which is auto-updated on a schedule:
 
 - name: Setup vapoursynth
   uses: deadnews/action-setup-vs@latest
