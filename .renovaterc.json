@@ -10,7 +10,8 @@
       "semanticCommitType": "docs"
     },
     {
-      "description": "Ignore schedule for vapoursynth",
+      "description": "Ignore schedule for vapoursynth and Group all updates together in one PR",
+      "groupName": "vapoursynth",
       "matchPackageNames": ["vapoursynth"],
       "minimumReleaseAge": "0 days",
       "schedule": ["at any time"]
