@@ -6,6 +6,10 @@ inputs:
     description: Vapoursynth version to use, defaults to latest
     required: true
     default: R64 # renovate: datasource=pypi dep_name=vapoursynth
+  cython-version:
+    description: Cython version to use, defaults to latest
+    required: true
+    default: 3.0.2 # renovate: datasource=pypi dep_name=cython
 
 runs:
   using: composite
@@ -50,14 +54,14 @@ runs:
     - name: Install vapoursynth make-deps
       if: runner.os == 'linux' && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
-      run: pip3 install cython
+      run: pip3 install "cython==${{ inputs.cython-version }}"
 
     - name: Install vapoursynth make-deps
       if: runner.os == 'macos' && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
       run: |
         brew install automake
-        pip3 install cython
+        pip3 install "cython==${{ inputs.cython-version }}"
 
     - name: Make vapoursynth
       if: (runner.os == 'linux' || runner.os == 'macos') && steps.cache-vs.outputs.cache-hit != 'true'
