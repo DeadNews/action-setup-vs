@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "setup-vapoursynth"
+name = "action-setup-vs"
 version = "0.0.0"
 description = "Action to setup Vapoursynth"
 authors = ["DeadNews <aurczpbgr@mozmail.com>"]
