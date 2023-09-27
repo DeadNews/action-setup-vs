@@ -9,12 +9,12 @@
 
 ```yaml
 - name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@v1.0.0
+  uses: deadnews/action-setup-vs@v1.0.1
 
 # or with digest pinning:
 
 - name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@fadda5203c6596b3c0c4d975a5bfdc0f6f09cac9 # v1.0.0
+  uses: deadnews/action-setup-vs@2545a3fdb0f62bbcf2a1b6df2aabf3f79741c54d # v1.0.1
 
 # or with `latest` tag, which is auto-updated on a schedule:
 
