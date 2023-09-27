@@ -1,0 +1,27 @@
+name: Push Tag
+
+on:
+  schedule:
+    # At 04:43 on day-of-month 2 and 16.
+    - cron: 43 4 2,16 * *
+
+permissions:
+  contents: write
+
+jobs:
+  push-tag:
+    name: Push Tag
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Automatically creates and updates the latest tag
+      - name: Push Tag
+        env:
+          TAG: latest
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git tag -a ${TAG} -m autoupdate -f
+          git push origin ${TAG} -f
