@@ -1,9 +1,10 @@
 name: Push Tag
 
 on:
-  schedule:
-    # At 04:43 on day-of-month 2 and 16.
-    - cron: 43 4 2,16 * *
+  push:
+    branches: [main]
+    paths:
+      - action.yml
 
 permissions:
   contents: write
