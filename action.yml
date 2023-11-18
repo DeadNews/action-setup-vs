@@ -9,7 +9,7 @@ inputs:
   cython-version:
     description: Cython version to use, defaults to latest
     required: true
-    default: 3.0.4 # renovate: datasource=pypi dep_name=cython
+    default: 3.0.5 # renovate: datasource=pypi dep_name=cython
 
 runs:
   using: composite
