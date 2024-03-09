@@ -13,7 +13,7 @@ inputs:
   zimg-version:
     description: Zimg version to use, defaults to latest
     required: true
-    default: v3.0.5 # renovate: datasource=github-releases dep_name=sekrit-twc/zimg
+    default: release-3.0.4 # renovate: datasource=github-tags dep_name=sekrit-twc/zimg versioning=loose
 
 runs:
   using: composite
