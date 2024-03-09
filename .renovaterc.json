@@ -22,9 +22,8 @@
       "description": "Update references in the action.yml",
       "fileMatch": ["^action\\.ya?ml$"],
       "matchStrings": [
-        "default: R?(?<currentValue>.+?) # renovate: datasource=(?<datasource>[a-z-]+?) dep_name=(?<depName>[^\\s]+?)\\n"
-      ],
-      "extractVersionTemplate": "^(?:release-)?(?<version>.*)$"
+        "default: \"?(?<currentValue>.+?)\"? # renovate: datasource=(?<datasource>[a-z-]+?) dep_name=(?<depName>[^\\s]+?)\\n"
+      ]
     },
     {
       "datasourceTemplate": "github-tags",
