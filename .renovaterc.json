@@ -24,7 +24,7 @@
       "matchStrings": [
         "default: R?(?<currentValue>.+?) # renovate: datasource=(?<datasource>[a-z-]+?) dep_name=(?<depName>[^\\s]+?)\\n"
       ],
-      "extractVersion": "^(?:release-)?(?<version>.*)$"
+      "extractVersionTemplate": "^(?:release-)?(?<version>.*)$"
     },
     {
       "datasourceTemplate": "github-tags",
