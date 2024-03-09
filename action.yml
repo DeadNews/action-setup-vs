@@ -40,7 +40,6 @@ runs:
         path: |
           /tmp/zimg/*
           !/tmp/zimg/.git
-          !/tmp/zimg/doc
           !/tmp/zimg/_msvc
 
     - name: Set env vars
