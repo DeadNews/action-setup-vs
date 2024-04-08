@@ -2,9 +2,9 @@
 
 > Action to setup [VapourSynth](https://github.com/vapoursynth/vapoursynth)
 
-[![Source: GitHub](https://img.shields.io/badge/source-github-blue.svg?logo=github&logoColor=white)](https://github.com/DeadNews/action-setup-vs)
-[![Test Action](https://github.com/DeadNews/action-setup-vs/actions/workflows/test-action.yml/badge.svg)](https://github.com/DeadNews/action-setup-vs/actions/workflows/test-action.yml)
-[![pre-commit.ci](https://results.pre-commit.ci/badge/github/DeadNews/action-setup-vs/main.svg)](https://results.pre-commit.ci/latest/github/DeadNews/action-setup-vs/main)
+[![GitHub: Release](https://img.shields.io/github/v/release/deadnews/action-setup-vs?logo=github&logoColor=white)](https://github.com/deadnews/action-setup-vs/releases/latest)
+[![CI: pre-commit](https://results.pre-commit.ci/badge/github/DeadNews/action-setup-vs/main.svg)](https://results.pre-commit.ci/latest/github/deadnews/action-setup-vs/main)
+[![CI: Test Action](https://img.shields.io/github/actions/workflow/status/deadnews/action-setup-vs/test-action.yml?branch=main&logo=github&logoColor=white&label=test-action)](https://github.com/deadnews/action-setup-vs/actions/workflows/test-action.yml)
 
 ## Usage
 

@@ -2,7 +2,7 @@
 name = "action-setup-vs"
 version = "0.0.0"
 description = "Action to setup Vapoursynth"
-authors = ["DeadNews <aurczpbgr@mozmail.com>"]
+authors = ["DeadNews <deadnewsgit@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
