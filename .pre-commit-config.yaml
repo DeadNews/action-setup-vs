@@ -21,12 +21,12 @@ repos:
       - id: prettier
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.20.4
+    rev: v1.21.0
     hooks:
       - id: typos
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.1
+    rev: 0.28.2
     hooks:
       - id: check-github-actions
       - id: check-github-workflows
@@ -43,7 +43,7 @@ repos:
       - id: checkmake
 
   - repo: https://github.com/python-poetry/poetry
-    rev: 1.8.2
+    rev: 1.8.3
     hooks:
       - id: poetry-check
         args: [--lock]
