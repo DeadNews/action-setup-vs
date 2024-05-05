@@ -59,7 +59,8 @@ runs:
     - name: Install cython
       if: (runner.os == 'linux' || runner.os == 'macos') && steps.cache-vs.outputs.cache-hit != 'true'
       shell: bash
-      run: pip3 install "cython==${{ inputs.cython-version }}"
+      run: |
+        pip3 install --break-system-packages "cython==${{ inputs.cython-version }}"
 
     - name: Install automake
       if: runner.os == 'macos' && (steps.cache-vs.outputs.cache-hit != 'true' || steps.cache-zimg.outputs.cache-hit != 'true')
