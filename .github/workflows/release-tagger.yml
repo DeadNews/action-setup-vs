@@ -1,0 +1,31 @@
+name: Release tagger
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release-tagger:
+    name: Push tags
+    if: true && !contains(github.ref, 'alpha') && !contains(github.ref, 'beta') && !contains(github.ref, 'rc')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Re-tag the major and minor version using the latest tag
+      - name: Tag major and minor versions
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          MAJOR_VERSION=$(echo ${{ github.ref_name }} | cut -d '.' -f 1)
+          MINOR_VERSION=$(echo ${{ github.ref_name }} | cut -d '.' -f 1,2)
+
+          git tag -a ${MAJOR_VERSION} -m "chore(release): autoupdate for ${{ github.ref_name }}" -f
+          git push origin ${MAJOR_VERSION} -f
+
+          git tag -a ${MINOR_VERSION} -m "chore(release): autoupdate for ${{ github.ref_name }}" -f
+          git push origin ${MINOR_VERSION} -f
