@@ -35,7 +35,7 @@
   uses: deadnews/action-setup-vs@bc6edcb8839980c823016d84e7a987ae6101a773 # v1.0.3
 ```
 
-- [Example to get started](https://github.com/DeadNews/action-setup-vs/blob/main/.github/workflows/main.yml)
+[Example to get started](https://github.com/DeadNews/action-setup-vs/blob/main/.github/workflows/main.yml)
 
 ## Supported runners
 
