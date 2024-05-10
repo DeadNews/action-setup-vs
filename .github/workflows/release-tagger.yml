@@ -10,7 +10,7 @@ permissions:
 jobs:
   release-tagger:
     name: Push major and minor tags
-    if: true && !contains(github.ref, 'alpha') && !contains(github.ref, 'beta') && !contains(github.ref, 'rc')
+    if: true && !contains(github.ref, 'beta') && !contains(github.ref, 'rc')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
