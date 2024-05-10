@@ -40,7 +40,6 @@ jobs:
       - name: Check vapoursynth
         run: poetry run python -c "import vapoursynth; print(vapoursynth.core.version_number())"
 
-
   github-deploy:
     name: Release to GitHub
     if: github.ref_type == 'tag'
