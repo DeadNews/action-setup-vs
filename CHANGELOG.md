@@ -1,19 +1,14 @@
 # Changelog
 
-## [1.0.4-alpha.0](https://github.com/DeadNews/action-setup-vs/compare/v1.0.3...v1.0.4-alpha.0) - 2024-05-10
+## [1.0.4](https://github.com/DeadNews/action-setup-vs/compare/v1.0.3...v1.0.4) - 2024-05-10
 
 ### 📚 Documentation
 
 - _(deps)_ update dependency deadnews/action-setup-vs to v1.0.3 ([#62](https://github.com/DeadNews/action-setup-vs/issues/62)) - ([db210a9](https://github.com/DeadNews/action-setup-vs/commit/db210a99cc2b1c2fe92d58a106febaa7bba5e5f4))
 
-### 🧹 Chores
-
-- auto fixes from `pre-commit` hooks - ([4f121d2](https://github.com/DeadNews/action-setup-vs/commit/4f121d2a7cc01e14963a3acb046130a64c648440))
-
 ### ⚙️ CI/CD
 
-- _(github)_ add `release-tagger` workflow - ([32cc23c](https://github.com/DeadNews/action-setup-vs/commit/32cc23cea94d4686842003d5b407b9766c72a072))
-- _(github)_ add `release-tagger` workflow - ([34a6246](https://github.com/DeadNews/action-setup-vs/commit/34a6246d0678a22117abad512ef0b9391d1609cf))
+- _(github)_ add `release-tagger` workflow ([#63](https://github.com/DeadNews/action-setup-vs/issues/63)) - ([7ac827f](https://github.com/DeadNews/action-setup-vs/commit/7ac827f9124ec1d46e81befe175ede8d7cab9e3d))
 
 ## [1.0.3](https://github.com/DeadNews/action-setup-vs/compare/v1.0.2...v1.0.3) - 2024-05-05
 
