@@ -23,11 +23,11 @@
 
 # with tag:
 - name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@v1.0.3
+  uses: deadnews/action-setup-vs@v1.0.4
 
 # with digest pinning:
 - name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@bc6edcb8839980c823016d84e7a987ae6101a773 # v1.0.3
+  uses: deadnews/action-setup-vs@94195fe715b14554a898377bf7f342c720e67894 # v1.0.4
 ```
 
 [Example to get started](https://github.com/DeadNews/action-setup-vs/blob/main/.github/workflows/main.yml)
