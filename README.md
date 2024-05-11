@@ -10,27 +10,22 @@
 
 ```yaml
 # with main branch:
-
 - name: Setup vapoursynth
   uses: deadnews/action-setup-vs@main
 
 # with major tag:
-
 - name: Setup vapoursynth
   uses: deadnews/action-setup-vs@v1
 
 # with minor tag:
-
 - name: Setup vapoursynth
   uses: deadnews/action-setup-vs@v1.0
 
 # with tag:
-
 - name: Setup vapoursynth
   uses: deadnews/action-setup-vs@v1.0.3
 
 # with digest pinning:
-
 - name: Setup vapoursynth
   uses: deadnews/action-setup-vs@bc6edcb8839980c823016d84e7a987ae6101a773 # v1.0.3
 ```
