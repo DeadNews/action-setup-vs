@@ -1,41 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "github>DeadNews/renovate-config"],
+  "extends": [
+    "config:base",
+    "github>deadnews/renovate-config",
+    "github>deadnews/renovate-config:preset-action-manydeps",
+    "github>deadnews/renovate-config:preset-docs-actions"
+  ],
   "packageRules": [
-    {
-      "addLabels": ["docs"],
-      "description": "Use docs semantic type for markdown files updates",
-      "matchPaths": ["**/*.md"],
-      "schedule": ["at any time"],
-      "semanticCommitType": "docs"
-    },
     {
       "description": "Ignore schedule for vapoursynth and Group all updates together in one PR",
       "groupName": "vapoursynth",
       "matchPackageNames": ["vapoursynth"],
       "minimumReleaseAge": "0 days",
       "schedule": ["at any time"]
-    }
-  ],
-  "regexManagers": [
-    {
-      "description": "Update references in the action.yml",
-      "fileMatch": ["^action\\.ya?ml$"],
-      "matchStrings": [
-        "default: \"?(?<currentValue>.+?)\"? # renovate: datasource=(?<datasource>[a-z-]+?) dep_name=(?<depName>[^\\s]+?)\\n"
-      ]
-    },
-    {
-      "datasourceTemplate": "github-tags",
-      "description": "Update Github Action references in the markdown files",
-      "fileMatch": ["\\.md$"],
-      "matchStrings": [
-        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+)\\n",
-        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+)\\n",
-        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentValue>v\\d+\\.\\d+\\.\\d+)\\n",
-        "\\suses: (?<depName>[\\w-]+/[\\w-]+)(?<path>/.*)?@(?<currentDigest>[a-z0-9]{40}|[a-z0-9]{64}) # (?<currentValue>v\\d+\\.\\d+\\.\\d+)"
-      ],
-      "versioningTemplate": "semver"
     }
   ]
 }
