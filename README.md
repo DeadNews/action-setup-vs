@@ -9,18 +9,6 @@
 ## Usage
 
 ```yaml
-# with main branch:
-- name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@main
-
-# with major tag:
-- name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@v1
-
-# with minor tag:
-- name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@v1.0
-
 # with tag:
 - name: Setup vapoursynth
   uses: deadnews/action-setup-vs@v1.0.4
@@ -30,7 +18,9 @@
   uses: deadnews/action-setup-vs@94195fe715b14554a898377bf7f342c720e67894 # v1.0.4
 ```
 
-[Example to get started](https://github.com/DeadNews/action-setup-vs/blob/main/.github/workflows/main.yml)
+Examples of valid GitHub tags: `main`, `v1`, `v1.0`, `v1.0.1`.
+
+[Example](https://github.com/DeadNews/action-setup-vs/blob/main/.github/workflows/main.yml) to get started.
 
 ## Supported runners
 
