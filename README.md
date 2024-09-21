@@ -11,11 +11,11 @@
 ```yaml
 # with tag:
 - name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@v1.0.4
+  uses: deadnews/action-setup-vs@v1.0.5
 
 # with digest pinning:
 - name: Setup vapoursynth
-  uses: deadnews/action-setup-vs@94195fe715b14554a898377bf7f342c720e67894 # v1.0.4
+  uses: deadnews/action-setup-vs@c002a98e6190a81f36c4376d8e05df8b779f733f # v1.0.5
 ```
 
 Examples of valid GitHub tags: `main`, `v1`, `v1.0`, `v1.0.1`.
