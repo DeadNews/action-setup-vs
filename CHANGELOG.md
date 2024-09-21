@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.0.5](https://github.com/DeadNews/action-setup-vs/compare/v1.0.4...v1.0.5) - 2024-09-21
+
+### 📚 Documentation
+
+- _(changelog)_ update `git-cliff` config - ([87f1aaf](https://github.com/DeadNews/action-setup-vs/commit/87f1aaf903045f59ea1c6ce276bca0d63419b082))
+- _(deps)_ update dependency deadnews/action-setup-vs to v1.0.4 ([#64](https://github.com/DeadNews/action-setup-vs/issues/64)) - ([4281e35](https://github.com/DeadNews/action-setup-vs/commit/4281e35e3c04b5e153bbe1b9920d4461296995ec))
+- _(readme)_ update usage - ([d0a0932](https://github.com/DeadNews/action-setup-vs/commit/d0a0932e89946ee63fac664dde9cd0ad298f03c3))
+
+### 🧹 Chores
+
+- _(typos)_ ignore short words - ([5f080af](https://github.com/DeadNews/action-setup-vs/commit/5f080aff6e3a9ef8df898cd9ad7ed78704275e50))
+
+### ⚙️ CI/CD
+
+- _(renovate)_ move regexes to presets - ([b4da46c](https://github.com/DeadNews/action-setup-vs/commit/b4da46c26b20dbd78860dd2b56b3ae80e80196da))
+- _(renovate)_ adjust regex - ([8449a31](https://github.com/DeadNews/action-setup-vs/commit/8449a316216ec2a488e2994c69d97008366a731d))
+
+### ⬆️ Dependencies
+
+- _(deps)_ update dependency vapoursynth to v70 - ([798942f](https://github.com/DeadNews/action-setup-vs/commit/798942faaab5d395c1b86cfa658a0fbb4ed68f97))
+
 ## [1.0.4](https://github.com/DeadNews/action-setup-vs/compare/v1.0.3...v1.0.4) - 2024-05-10
 
 ### 📚 Documentation
@@ -100,7 +121,7 @@
 - _(renovate)_ fix config - ([5f9df5c](https://github.com/DeadNews/action-setup-vs/commit/5f9df5cb56a70f99fbbc4667f50f155ec480ce41))
 - update `workflows` ([#8](https://github.com/DeadNews/action-setup-vs/issues/8)) - ([cbcb889](https://github.com/DeadNews/action-setup-vs/commit/cbcb8894e2aedcca5ac1ec20fd3672ccdcf96e02))
 
-## [0.0.1] - 2023-05-22
+## [0.0.1](https://github.com/DeadNews/action-setup-vs/commits/v0.0.1) - 2023-05-22
 
 ### 🚀 Features
 
