@@ -13,7 +13,6 @@ update:
 	poetry up --latest
 
 checks: pc
-
 pc:
 	pre-commit run -a
 
