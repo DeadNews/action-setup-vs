@@ -23,7 +23,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.26.0
+    rev: v1.27.3
     hooks:
       - id: typos
 
@@ -35,7 +35,7 @@ repos:
       - id: check-renovate
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.3
+    rev: v1.7.4
     hooks:
       - id: actionlint
 
