@@ -4,7 +4,7 @@ default: checks
 
 install:
 	pre-commit install
-	poetry install --sync --no-root
+	poetry sync --no-root
 
 lock:
 	poetry lock --no-update
