@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.0.6](https://github.com/DeadNews/action-setup-vs/compare/v1.0.5...v1.0.6) - 2025-04-16
+
+### 📚 Documentation
+
+- _(deps)_ update dependency deadnews/action-setup-vs to v1.0.5 ([#77](https://github.com/DeadNews/action-setup-vs/issues/77)) - ([4a2b541](https://github.com/DeadNews/action-setup-vs/commit/4a2b54173d45b1616f27ebf069fbe48a0c7c9a61))
+
+### 🧹 Chores
+
+- _(config)_ migrate config .renovaterc.json ([#81](https://github.com/DeadNews/action-setup-vs/issues/81)) - ([18bf2b8](https://github.com/DeadNews/action-setup-vs/commit/18bf2b87cd94797bb5316efae3946bb5cd67ba85))
+
+### ⚙️ CI/CD
+
+- _(github)_ remove `macos` from tests matrix - ([62df603](https://github.com/DeadNews/action-setup-vs/commit/62df60329f351feeb2a1b96f3c1a88284bc1e2ce))
+- _(github)_ prepare for `poetry:v2` ([#88](https://github.com/DeadNews/action-setup-vs/issues/88)) - ([09c6482](https://github.com/DeadNews/action-setup-vs/commit/09c64823cd71daca949165e357a2c936b12bf5dc))
+
+### ⬆️ Dependencies
+
+- _(deps)_ update dependency vapoursynth to v71 ([#93](https://github.com/DeadNews/action-setup-vs/issues/93)) - ([9457dc8](https://github.com/DeadNews/action-setup-vs/commit/9457dc849fd4e86d768c8c9640225bfb6dd28189))
+
 ## [1.0.5](https://github.com/DeadNews/action-setup-vs/compare/v1.0.4...v1.0.5) - 2024-09-21
 
 ### 📚 Documentation
